@@ -41,13 +41,23 @@ class Note extends Component {
          }
     }
 
+    handleTitleChange(event) {
+        const newTitle = event.target.value
+        this.setState({title: newTitle})
+    }
+
+    handleTextChange(event) {
+        const newText = event.target.value
+        this.setState({text: newText})
+    }
+
     render() {
         const titleId = `${this.props.id}.title`
         const textId = `${this.props.id}.text`
         return (
             <div>
-                <textarea className="title" id={titleId} rows="1" cols="140" defaultValue={this.state.title} />
-                <textarea className="text" id={textId} cols="140" defaultValue={this.state.text} />
+                <textarea className="title" id={titleId} defaultValue={this.state.title} onChange={(event) => this.handleTitleChange(event)} />
+                <textarea className="text" id={textId} defaultValue={this.state.text} onChange={(event) => this.handleTextChange(event)}/>
             </div>
          );
     }
