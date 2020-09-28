@@ -11,7 +11,7 @@ class ListNote extends Component {
     newNote() {
         console.log(this)
         const noteId = `note-${this.state.notes.length}`
-        const note = <Note id={noteId} />
+        const note = <Note data-testid={noteId} id={noteId} />
         this.setState({notes: this.state.notes.concat(note)})
     }
 
@@ -22,7 +22,7 @@ class ListNote extends Component {
 
         return (
             <div>
-                <button onClick={() => this.newNote()}>New Note</button>
+                <button data-testid="newNote" id="new_note" onClick={() => this.newNote()}>New Note</button>
                 <ul>
                     {list}
                 </ul>
@@ -55,9 +55,9 @@ class Note extends Component {
         const titleId = `${this.props.id}.title`
         const textId = `${this.props.id}.text`
         return (
-            <div>
-                <textarea className="title" id={titleId} defaultValue={this.state.title} onChange={(event) => this.handleTitleChange(event)} />
-                <textarea className="text" id={textId} defaultValue={this.state.text} onChange={(event) => this.handleTextChange(event)}/>
+            <div data-testid={this.props["data-testid"]} >
+                <textarea className="title" data-testid={titleId} id={titleId} defaultValue={this.state.title} onChange={(event) => this.handleTitleChange(event)} />
+                <textarea className="text" data-testid={textId} id={textId} defaultValue={this.state.text} onChange={(event) => this.handleTextChange(event)}/>
             </div>
          );
     }
