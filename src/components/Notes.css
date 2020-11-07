@@ -1,0 +1,33 @@
+.Note {
+    background-color: red;
+    width: 80%;
+    float: right;
+    display: flexbox;
+    flex-direction: column;
+}
+
+.ListNote {
+    width: 20%;
+    float: left;
+}
+
+.ListNote ul li {
+    background-color: green;
+}
+
+.ListNote .Note {
+    width: 100%;
+    background-color: yellow;
+    border-width: 10px;
+    border-color: black;
+    border: medium solid black;
+}
+
+.ListNote .Note .title {
+    width: 100%;
+    height: 100%;
+}
+
+.ListNote .Note .text {
+    visibility: hidden;
+}
