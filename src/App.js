@@ -27,22 +27,28 @@ class App extends Component {
 
   handleClickNote(event) {
     this.setState({selected_note: event.target.id})
-    console.log("changed state")
   }
 
   handleTitleChange(event) {
     const newTitle = event.target.value
-    this.setState({title: newTitle})
+    const noteId = event.target.id.split(".")[0]
+    var listnote = this.state.list_note
+    listnote[noteId] = {...listnote[noteId], title: newTitle}
+    this.setState({list_note: listnote})
   }
 
   handleTextChange(event) {
-      const newText = event.target.value
-      this.setState({text: newText})
+    const newText = event.target.value
+    const noteId = event.target.id.split(".")[0]
+    var listnote = this.state.list_note
+    listnote[noteId] = {...listnote[noteId], text: newText}
+    this.setState({list_note: listnote})
   }
 
   render() {
     const notes = Object.entries(this.state.list_note).map(([id, props], i) => (
       <Note
+        readOnly={true}
         key={id}
         title={props.title}
         text={props.text}
@@ -54,12 +60,8 @@ class App extends Component {
       />
     ))
 
-    console.log("rendering")
-    console.log(this.state)
     var displayedNote = null
     if (this.state.selected_note in this.state.list_note) {
-      console.log("new note")
-      console.log(this.state.selected_note)
       const noteId = this.state.selected_note
       const noteProps = this.state.list_note[noteId]
       displayedNote = <Note
@@ -74,7 +76,6 @@ class App extends Component {
     } else {
       displayedNote = <EmptyNote />
     }
-    console.log(displayedNote)
 
     return (
       <div className="App">
