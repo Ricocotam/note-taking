@@ -1,33 +1,55 @@
 .Note {
-    background-color: red;
+    margin: 0;
+    padding: 0;
     width: 80%;
+    height: 100%;
     float: right;
-    display: flexbox;
+    display: flex;
     flex-direction: column;
+    border: 1px solid black;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.Note .text {
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+}
+
+.Note .title {
+    font-size: 7mm;
+    width: 100%;
 }
 
 .ListNote {
-    width: 20%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
     float: left;
 }
 
-.ListNote ul li {
-    background-color: green;
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+input {
+    box-sizing: border-box;
 }
 
 .ListNote .Note {
     width: 100%;
-    background-color: yellow;
-    border-width: 10px;
-    border-color: black;
-    border: medium solid black;
-}
-
-.ListNote .Note .title {
-    width: 100%;
     height: 100%;
 }
 
-.ListNote .Note .text {
-    visibility: hidden;
+.ListNote .title {
+    font-size: 4mm;
+    width: 100;
+    border: inherit;
+}
+
+.ListNote .text {
+    display: none;
 }

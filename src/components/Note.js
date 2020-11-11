@@ -53,7 +53,6 @@ class NewNote extends Component {
 }
 
 
-
 class Note extends Component {
     render() {
         const titleId = `${this.props.id}.title`
@@ -61,7 +60,7 @@ class Note extends Component {
         return (
             <div className="Note" id={this.props.id} data-testid={this.props["data-testid"]} onClick={this.props.onClick} >
                 <input className="title" data-testid={titleId} id={titleId} defaultValue={this.props.title} onChange={this.props.onTitleChange} readOnly={this.props.readOnly}/>
-                <textarea className="text" data-testid={textId} id={textId} defaultValue={this.props.text} onChange={this.props.onTextChange}/>
+                <textarea className="text" data-testid={textId} id={textId} defaultValue={this.props.text} onChange={this.props.onTextChange} readOnly={this.props.readOnly}/>
             </div>
         );
     }
@@ -69,7 +68,7 @@ class Note extends Component {
 
 // Prevent from modifying the note
 function EmptyNote(props){
-    return <Note />
+    return <Note readOnly={true} />
 }
 
 export {

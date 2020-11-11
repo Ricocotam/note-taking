@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import './App.css';
+import './App.css';
 import { ListNote, NewNote, EmptyNote, Note } from './components/Note.js'
 
 class App extends Component {
@@ -79,11 +79,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <header className="App-header">
-          Notes
-        </header>
-        <NewNote onSubmit={this.handleNewNote}/>
-        <ListNote notes={notes}/>
+        <div id="sidebar">
+          <NewNote onSubmit={this.handleNewNote}/>
+          <ListNote notes={notes}/>
+        </div>
         {displayedNote}
       </div>
     )
