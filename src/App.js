@@ -43,6 +43,7 @@ class App extends Component {
   render() {
     const notes = Object.entries(this.state.list_note).map(([id, props], i) => (
       <Note
+        key={id}
         title={props.title}
         text={props.text}
         data-testid={id}
@@ -62,6 +63,7 @@ class App extends Component {
       const noteId = this.state.selected_note
       const noteProps = this.state.list_note[noteId]
       displayedNote = <Note
+        key={noteId}
         title={noteProps.title}
         text={noteProps.text}
         data-testid={noteId}
@@ -69,10 +71,10 @@ class App extends Component {
         onTitleChange={this.handleTitleChange}
         onTextChange={this.handleTextChange}
       />
-      console.log(displayedNote)
     } else {
       displayedNote = <EmptyNote />
     }
+    console.log(displayedNote)
 
     return (
       <div className="App">
