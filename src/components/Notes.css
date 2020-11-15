@@ -23,11 +23,8 @@
 }
 
 .ListNote {
-    margin: 0;
-    padding: 0;
-    width: 100%;
+    width: 95%;
     height: 100%;
-    float: left;
 }
 
 ul {
@@ -40,14 +37,16 @@ input {
 }
 
 .ListNote .Note {
-    width: 100%;
+    width: 95%;
     height: 100%;
+    margin-bottom: 3px;
 }
 
 .ListNote .title {
     font-size: 4mm;
-    width: 100;
-    border: inherit;
+    width: 100%;
+    padding-left: 10px;
+    border: transparent;
 }
 
 .ListNote .text {

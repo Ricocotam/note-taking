@@ -26,10 +26,13 @@ class App extends Component {
   }
 
   handleClickNote(event) {
-    this.setState({selected_note: event.target.id})
+    var target_id = event.target.id + "."
+    const note_id = target_id.split(".")[0]
+    this.setState({selected_note: note_id})
   }
 
   handleTitleChange(event) {
+    console.log(event.target)
     const newTitle = event.target.value
     const noteId = event.target.id.split(".")[0]
     var listnote = this.state.list_note
@@ -48,8 +51,8 @@ class App extends Component {
   render() {
     const notes = Object.entries(this.state.list_note).map(([id, props], i) => (
       <Note
-        readOnly={true}
         key={id}
+        readOnly={true}
         title={props.title}
         text={props.text}
         data-testid={id}
